@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "chizaram43!.",
   database: "burger_db"
 });
 
@@ -52,14 +52,14 @@ app.get("/", function(req, res) {
 });
 
 // Post route -> back to home
-app.post("/", function(req, res) {
+app.post("/api/burgers", function(req, res) {
   // Test it.
-  // console.log('You sent, ' + req.body.burger);
+  console.log('You sent, ' + req.body.burger);
 
   // Test it.
   // res.send('You sent, ' + req.body.burger)
 
-  connection.query("INSERT INTO burger (burger) VALUES (?)", [req.body.burger], function(err, result) {
+  connection.query("INSERT INTO burger (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
     if (err) {
       throw err;
     }
